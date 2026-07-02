@@ -94,7 +94,7 @@ header.scrolled {
 .hero { position: relative; min-height: 100svh; display: flex; align-items: center; overflow: hidden; }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2400&auto=format&fit=crop') center/cover no-repeat;
+  background: url('images/hero-calypso.jpg') center/cover no-repeat;
   animation: heroZoom 22s ease-out forwards;
 }
 @keyframes heroZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
