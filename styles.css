@@ -319,6 +319,19 @@ cite { font-style: normal; font-size: 12px; letter-spacing: 0.3em; text-transfor
 .fact b { font-family: var(--display); font-size: 1.9rem; font-weight: 800; color: var(--gold-bright); display: block; line-height: 1.1; }
 .fact small { font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ivory-dim); font-weight: 600; }
 
+/* Areas served — city tags + zip chips */
+.zip-label { display: block; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 40px 0 14px; }
+.zip-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.zip { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; color: var(--ivory-dim); border: 1px solid var(--line); padding: 7px 13px; transition: all 0.3s ease; }
+.zip:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Numbered claim/process steps (vertical) */
+.claim-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 60px; counter-reset: cs; }
+.claim-step { position: relative; padding: 34px 26px; background: var(--ink); border: 1px solid var(--line); }
+.claim-step::before { counter-increment: cs; content: counter(cs, decimal-leading-zero); font-family: var(--display); font-weight: 800; font-size: 1.4rem; color: var(--gold); display: block; margin-bottom: 14px; }
+.claim-step h3 { font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+.claim-step p { color: var(--ivory-dim); font-size: 0.9rem; }
+
 /* CTA band */
 .cta-band { text-align: center; padding: 130px 0; }
 .cta-band .lede { margin: 0 auto 44px; }
@@ -344,6 +357,7 @@ footer ul a:hover { color: var(--gold); }
   .about-grid, .contact-grid, .areas-wrap { grid-template-columns: 1fr; gap: 56px; }
   .services-grid { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .claim-steps { grid-template-columns: 1fr 1fr; }
   .step::before { right: 0; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
   .card-grid { grid-template-columns: 1fr 1fr; }
@@ -366,7 +380,7 @@ footer ul a:hover { color: var(--gold); }
   }
   .nav-links.open { transform: none; }
   .hamburger { display: block; }
-  .services-grid, .process-grid, .portfolio-grid, .areas-list, .form-grid, .card-grid { grid-template-columns: 1fr; }
+  .services-grid, .process-grid, .portfolio-grid, .areas-list, .form-grid, .card-grid, .claim-steps { grid-template-columns: 1fr; }
   .link-card { height: 300px; }
   .work.tall { grid-row: span 1; }
   .about-main { height: 400px; }
