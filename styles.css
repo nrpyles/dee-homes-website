@@ -87,8 +87,11 @@ header.scrolled {
 .nav-cta::after { display: none !important; }
 .nav-cta:hover { background: var(--gold); color: var(--ink) !important; }
 
-.hamburger { display: none; background: none; border: none; cursor: pointer; z-index: 110; }
-.hamburger span { display: block; width: 26px; height: 2px; background: var(--ivory); margin: 6px 0; transition: 0.3s; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; z-index: 110; padding: 6px; }
+.hamburger span { display: block; width: 26px; height: 2px; background: var(--ivory); margin: 6px 0; transition: transform 0.3s ease, opacity 0.3s ease; }
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* ---------- Hero (home) ---------- */
 .hero { position: relative; min-height: 100svh; display: flex; align-items: center; overflow: hidden; }
@@ -281,7 +284,7 @@ cite { font-style: normal; font-size: 12px; letter-spacing: 0.3em; text-transfor
 .field label { font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ivory-dim); }
 .field input, .field select, .field textarea {
   background: var(--ink); border: 1px solid rgba(244,239,230,0.14); color: var(--ivory);
-  padding: 17px 18px; font-family: var(--sans); font-size: 0.98rem;
+  padding: 17px 18px; font-family: var(--sans); font-size: 16px;
   transition: border-color 0.3s ease; appearance: none; border-radius: 0;
 }
 .field select { background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%); background-position: calc(100% - 22px) 26px, calc(100% - 16px) 26px; background-size: 6px 6px; background-repeat: no-repeat; }
@@ -375,12 +378,17 @@ footer ul a:hover { color: var(--gold); }
 }
 @media (max-width: 720px) {
   .nav-links {
-    position: fixed; inset: 0; background: rgba(13,12,10,0.98); flex-direction: column;
+    position: fixed; inset: 0; background: var(--ink); flex-direction: column;
     justify-content: center; gap: 30px; transform: translateX(100%); transition: transform 0.45s ease;
   }
   .nav-links.open { transform: none; }
   .hamburger { display: block; }
-  .services-grid, .process-grid, .portfolio-grid, .areas-list, .form-grid, .card-grid, .claim-steps { grid-template-columns: 1fr; }
+  .services-grid, .process-grid, .portfolio-grid, .form-grid, .card-grid, .claim-steps { grid-template-columns: 1fr; }
+  .areas-list { grid-template-columns: 1fr 1fr; }
+  .hero-scroll { display: none; }
+  .hero-ctas { width: 100%; }
+  .hero-ctas .btn { width: 100%; text-align: center; }
+  .feature-grid img { height: 320px; }
   .link-card { height: 300px; }
   .work.tall { grid-row: span 1; }
   .about-main { height: 400px; }

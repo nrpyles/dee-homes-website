@@ -6,8 +6,15 @@ if (header) addEventListener('scroll', () => header.classList.toggle('scrolled',
 const burger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 if (burger && navLinks) {
-  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  const toggleMenu = (force) => {
+    const open = force !== undefined ? force : !navLinks.classList.contains('open');
+    navLinks.classList.toggle('open', open);
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  burger.addEventListener('click', () => toggleMenu());
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
   // Highlight the current page in the nav
   const here = location.pathname.split('/').pop() || 'index.html';
